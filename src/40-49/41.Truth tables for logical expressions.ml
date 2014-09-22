@@ -9,8 +9,8 @@ let rec wartosc list_val expr =
    | Var x -> 
       let odp = 
       match List.Assoc.find list_val x with
-      | None -> failwith "nie ma"
-      | Some x -> x
+         | None -> failwith "nie ma"
+         | Some x -> x
       in odp
    | Or (x,y) ->
       if wartosc list_val x = false  && wartosc list_val y = false then false
@@ -34,7 +34,7 @@ let table list_var expr =
    let lista = sorti ( List.length list_var ) in
       let rec szukaj = function
          | [] -> []
-         | hd :: tl -> ( ( List.zip_exn list_var hd ), ( wartosc ( List.zip_exn list_var hd) expr ) ) :: szukaj tl
+         | hd :: tl -> ( ( List.zip_exn list_var hd ), ( wartosc ( List.zip_exn list_var hd) expr ) ) :: szukaj tl  (* it's so magic line, pls be patient and read this one carefully *)
       in
       szukaj lista;;
    
