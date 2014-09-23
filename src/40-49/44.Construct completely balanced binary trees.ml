@@ -13,7 +13,7 @@ type 'a binary_tree =
 let add_trees_with left right all =
     let add_right_tree all l =
       List.fold_left ~f:(fun a r -> Node("x", l, r) :: a) ~init:all right in
-    List.fold_left ~f:add_right_tree ~init:all left
+    List.fold_left ~f:add_right_tree ~init:all left (* it's equal to ~f:(fun x y -> add_right_tree x y) *)
 
 
 let css n = 
