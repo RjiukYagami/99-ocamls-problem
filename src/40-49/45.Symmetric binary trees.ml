@@ -23,3 +23,15 @@ let symetric tree =
          | _ -> false
 ;;
 
+(* second way *)
+(* so much better way, shame i didn't come up with it myself </3 *)
+let rec mirror t1 t2 = 
+   match t1, t2 with
+      | Empty,Empty -> true
+      | Node(_,l1,r1), Node(_,l2,r2) ->
+         mirror l1 r2 && mirror l2 r1
+      | _ -> false
+
+let symetric2 = function
+   | Empty -> false
+   | Node(_,r,l) -> mirror l r 
